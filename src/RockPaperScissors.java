@@ -19,6 +19,7 @@ public class RockPaperScissors {
             case 2:
                 computer_move = "Scissors";
         }
+
         if (computer==player){
             winner=1;
         }
