@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 // Function for Ranking that will set text and it's color
-// Icons for bottons and for computer's move
+// Icons for buttons and for computer's move
 //End Game button!!!
 
 public class Game extends JFrame {
