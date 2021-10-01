@@ -64,14 +64,14 @@ public class Game extends JFrame {
             game.player=0;
             Choice.setText("Your choice: Rock");
             game.game();
-            switch (game.winner) {
-                case 0:
+            Computer.setText(game.computer_move);
+            if (game.winner==0){
                     RoundWinner.setText("You Lost");
-                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
-                case 1:
+                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);}
+            else if (game.winner==1){
                     RoundWinner.setText("Remis");
-                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
-                case 2:
+                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);}
+            else{
                     RoundWinner.setText("You Won!");
                     Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
             }
@@ -84,16 +84,16 @@ public class Game extends JFrame {
             game.player = 1;
             Choice.setText("Your choice: Paper");
             game.game();
-            switch (game.winner) {
-                case 0:
-                    RoundWinner.setText("You Lost");
-                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
-                case 1:
-                    RoundWinner.setText("Remis");
-                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
-                case 2:
-                    RoundWinner.setText("You Won!");
-                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
+            Computer.setText(game.computer_move);
+            if (game.winner==0){
+                RoundWinner.setText("You Lost");
+                Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);}
+            else if (game.winner==1){
+                RoundWinner.setText("Remis");
+                Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);}
+            else{
+                RoundWinner.setText("You Won!");
+                Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
             }
         }
     }
@@ -104,16 +104,16 @@ public class Game extends JFrame {
             game.player = 2;
             Choice.setText("Your choice: Scissors");
             game.game();
-            switch (game.winner) {
-                case 0:
-                    RoundWinner.setText("You Lost");
-                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
-                case 1:
-                    RoundWinner.setText("Remis");
-                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
-                case 2:
-                    RoundWinner.setText("You Won!");
-                    Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
+            Computer.setText(game.computer_move);
+            if (game.winner==0){
+                RoundWinner.setText("You Lost");
+                Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);}
+            else if (game.winner==1){
+                RoundWinner.setText("Remis");
+                Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);}
+            else{
+                RoundWinner.setText("You Won!");
+                Scores.setText(" Score:\nYou : Computer \n " + game.won + ":" + game.lost);
             }
         }
     }
