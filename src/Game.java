@@ -2,16 +2,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-// Function for Ranking that will set text and it's color
+
+
 // Icons for buttons and for computer's move
 //End Game button!!!
 
 public class Game extends JFrame {
     RockPaperScissors game=new RockPaperScissors();
 
-    JButton Rock=new JButton("R");
-    JButton Paper= new JButton("P");
-    JButton Scissors= new JButton("S");
+    Icon rock=new ImageIcon("rock.png");
+    Icon paper=new ImageIcon("papier.png");
+    Icon scissors=new ImageIcon("scissors.png");
+
+    JButton Rock=new JButton(rock);
+    JButton Paper= new JButton(paper);
+    JButton Scissors= new JButton(scissors);
     JButton End=new JButton("End Game");
     JLabel Computer= new JLabel("Computer's move");
     JLabel RW= new JLabel("  Winner:");
@@ -25,6 +30,24 @@ public class Game extends JFrame {
     JPanel Info = new JPanel();
     JPanel PlayerPanel = new JPanel();
     JPanel Options=new JPanel();
+
+    void ranking(){
+        if (game.winner==0){
+            RoundWinner.setText("You Lost");
+            RoundWinner.setForeground(Color.red);
+            Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);}
+        else if (game.winner==1){
+            RoundWinner.setText("Remis");
+            RoundWinner.setForeground(Color.CYAN);
+            Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);}
+        else{
+            RoundWinner.setText("You Won!");
+            RoundWinner.setForeground(Color.GREEN);
+            Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);
+        }
+
+
+    }
 
     public Game(){
         Container cp= getContentPane();
@@ -62,6 +85,7 @@ public class Game extends JFrame {
         PlayerPanel.add(Scissors);
         Scissors.addActionListener(new Scissors_Move());
 
+
         cp.add(Info);
         Info.setLayout(new GridLayout(4,1));
         Info.add(Choice);
@@ -84,16 +108,7 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Rock");
             game.game();
             Computer.setText(game.computer_move);
-            if (game.winner==0){
-                    RoundWinner.setText("You Lost");
-                    Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);}
-            else if (game.winner==1){
-                    RoundWinner.setText("Remis");
-                    Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);}
-            else{
-                    RoundWinner.setText("You Won!");
-                    Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);
-            }
+            ranking();
         }
     }
     class Paper_Move implements ActionListener {
@@ -104,16 +119,7 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Paper");
             game.game();
             Computer.setText(game.computer_move);
-            if (game.winner==0){
-                RoundWinner.setText("You Lost");
-                Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);}
-            else if (game.winner==1){
-                RoundWinner.setText("Remis");
-                Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);}
-            else{
-                RoundWinner.setText("You Won!");
-                Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);
-            }
+            ranking();
         }
     }
     class Scissors_Move implements ActionListener {
@@ -124,16 +130,15 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Scissors");
             game.game();
             Computer.setText(game.computer_move);
-            if (game.winner==0){
-                RoundWinner.setText("You Lost");
-                Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);}
-            else if (game.winner==1){
-                RoundWinner.setText("Remis");
-                Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);}
-            else{
-                RoundWinner.setText("You Won!");
-                Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);
-            }
+            ranking();
+        }
+    }
+
+    class End_Game implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
         }
     }
 
