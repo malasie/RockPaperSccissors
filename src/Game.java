@@ -19,6 +19,7 @@ public class Game extends JFrame {
     JButton Scissors= new JButton(scissors);
     JButton End=new JButton("End Game");
     JLabel Computer= new JLabel("Computer's move");
+    JLabel C_Move= new JLabel();
     JLabel RW= new JLabel("  Winner:");
     static JLabel RoundWinner= new JLabel();
     JLabel S= new JLabel("  Score: ");
@@ -62,11 +63,12 @@ public class Game extends JFrame {
         Title.setFont(new Font("Bauhaus 93", Font.BOLD, 50));
 
         cp.add(ComputerPanel);
-        ComputerPanel.setLayout(new GridLayout(1,3));
-        ComputerPanel.add(new JLabel());
+        ComputerPanel.setLayout(new GridLayout(2,1));
+        ComputerPanel.add(C_Move);
         ComputerPanel.add(Computer);
+        Computer.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
         Computer.setHorizontalAlignment(JTextField.CENTER);
-        ComputerPanel.add(new JLabel());
+
 
         cp.add(Ranking);
         Ranking.setLayout(new GridLayout(2,2));
@@ -106,6 +108,18 @@ public class Game extends JFrame {
         End.addActionListener(new End_Game());
 
     }
+
+    void Image(){
+      if (game.computer_move.equals("Rock")) {
+        C_Move.setIcon(rock);
+      }
+      else if (game.computer_move.equals("Paper")){
+          C_Move.setIcon(paper);
+      }
+      else { C_Move.setIcon(scissors);}
+    }
+
+
     class Rock_Move implements ActionListener{
 
         @Override
@@ -114,6 +128,7 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Rock");
             game.game();
             Computer.setText(game.computer_move);
+            Image();
             ranking();
         }
     }
@@ -125,6 +140,7 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Paper");
             game.game();
             Computer.setText(game.computer_move);
+            Image();
             ranking();
         }
     }
@@ -136,6 +152,7 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Scissors");
             game.game();
             Computer.setText(game.computer_move);
+            Image();
             ranking();
         }
     }
