@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 //End Game button!!!
 
 public class Game extends JFrame {
-    RockPaperScissors game=new RockPaperScissors();
+    static RockPaperScissors game=new RockPaperScissors();
 
     Icon rock=new ImageIcon("rock.png");
     Icon paper=new ImageIcon("papier.png");
@@ -20,16 +20,21 @@ public class Game extends JFrame {
     JButton End=new JButton("End Game");
     JLabel Computer= new JLabel("Computer's move");
     JLabel RW= new JLabel("  Winner:");
-    JLabel RoundWinner= new JLabel();
+    static JLabel RoundWinner= new JLabel();
     JLabel S= new JLabel("  Score: ");
-    JLabel Scores= new JLabel();
+    static JLabel Scores= new JLabel();
     JLabel Title= new JLabel("Rock Paper Scissors");
-    JLabel Choice= new JLabel();
+    static JLabel Choice= new JLabel();
     JPanel Ranking = new JPanel();
     JPanel ComputerPanel= new JPanel();
     JPanel Info = new JPanel();
     JPanel PlayerPanel = new JPanel();
     JPanel Options=new JPanel();
+
+    public static void close() {
+        System.exit(0);
+    }
+
 
     void ranking(){
         if (game.winner==0){
@@ -98,6 +103,7 @@ public class Game extends JFrame {
         Options.add(new JLabel());
         Options.add(new JLabel());
         Options.add(End);
+        End.addActionListener(new End_Game());
 
     }
     class Rock_Move implements ActionListener{
@@ -138,7 +144,10 @@ public class Game extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            JFrame f = new EndGame();
+            f.setSize(300, 230);
+            f.setLocation(250, 250);
+            f.setVisible(true);
         }
     }
 
