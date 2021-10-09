@@ -18,9 +18,9 @@ class EndGame extends JFrame {
     public EndGame() {
         Container cp=getContentPane();
         cp.setLayout(new GridLayout(3,1));
-        menu.setBackground(new Color(253, 205, 159));
-        Score.setBackground(new Color(253, 205, 159));
-        Winner.setBackground(new Color(253, 205, 159));
+        menu.setBackground(new Color(138, 186, 238));
+        Score.setBackground(new Color(138, 186, 238));
+        Winner.setBackground(new Color(138, 186, 238));
         cp.add(Winner);
         cp.add(Score);
         cp.add(menu);
