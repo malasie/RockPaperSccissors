@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-// Icons for buttons and for computer's move
+
 //End Game button!!!
 
 public class Game extends JFrame {
@@ -19,6 +19,7 @@ public class Game extends JFrame {
     JButton Scissors= new JButton(scissors);
     JButton End=new JButton("End Game");
     JLabel Computer= new JLabel("Computer's move");
+    JLabel Comp=new JLabel(rock);
     JLabel RW= new JLabel("  Winner:");
     JLabel RoundWinner= new JLabel();
     JLabel S= new JLabel("  Score: ");
@@ -45,8 +46,16 @@ public class Game extends JFrame {
             RoundWinner.setForeground(Color.GREEN);
             Scores.setText("You : " + game.won + ", Computer :  "  + game.lost);
         }
+    }
 
-
+    void Comp_Icon(){
+        if (game.computer_move=="Scissors"){
+            Comp.setIcon(scissors);
+        }
+        else if (game.computer_move=="Paper") {
+            Comp.setIcon(paper);
+        }
+        else{Comp.setIcon(rock);}
     }
 
     public Game(){
@@ -58,10 +67,11 @@ public class Game extends JFrame {
 
         cp.add(ComputerPanel);
         ComputerPanel.setLayout(new GridLayout(1,3));
-        ComputerPanel.add(new JLabel());
+        //ComputerPanel.add(new JLabel());
+        ComputerPanel.add(Comp);
         ComputerPanel.add(Computer);
         Computer.setHorizontalAlignment(JTextField.CENTER);
-        ComputerPanel.add(new JLabel());
+
 
         cp.add(Ranking);
         Ranking.setLayout(new GridLayout(2,2));
@@ -99,6 +109,7 @@ public class Game extends JFrame {
         Options.add(new JLabel());
         Options.add(End);
 
+
     }
     class Rock_Move implements ActionListener{
 
@@ -108,6 +119,7 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Rock");
             game.game();
             Computer.setText(game.computer_move);
+            Comp_Icon();
             ranking();
         }
     }
@@ -119,6 +131,7 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Paper");
             game.game();
             Computer.setText(game.computer_move);
+            Comp_Icon();
             ranking();
         }
     }
@@ -130,6 +143,7 @@ public class Game extends JFrame {
             Choice.setText("Your choice: Scissors");
             game.game();
             Computer.setText(game.computer_move);
+            Comp_Icon();
             ranking();
         }
     }
