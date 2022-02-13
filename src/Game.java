@@ -52,7 +52,7 @@ public class Game extends JFrame {
         if (game.computer_move=="Scissors"){
             Comp.setIcon(scissors);
         }
-        else if (game.computer_move=="Paper") {
+        else if (game.computer_move.equals("Paper")) {
             Comp.setIcon(paper);
         }
         else{Comp.setIcon(rock);}
